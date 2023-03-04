@@ -1,0 +1,198 @@
+{
+    "races": {
+        "frenchBullDog" : {
+            "title": "Französische Bulldogge",
+            "img": "https://images.unsplash.com/photo-1629646507077-9212a539567a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
+            "attributes": [
+                {
+                    "id": "health",
+                    "title": "Gesundheit",
+                    "value": 1,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "exercise",
+                    "title": "Bewegungsdrang",
+                    "value": 2,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "human",
+                    "title": "Menschenbindung",
+                    "value": 3,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "beginner",
+                    "title": "Anfängerfreundlich",
+                    "value": 4,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "grooming",
+                    "title": "Pflegebedarf",
+                    "value": 5,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "social",
+                    "title": "Sozialverhalten",
+                    "value": 2,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "allergy",
+                    "title": "Allergieverträglich",
+                    "value": 4,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "barking",
+                    "title": "Meldetrieb",
+                    "value": 5,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                }
+            ],
+            "bioData": {
+                "lifeExpectancy": "10-14",
+                "colors": "White, Brindle, Fawn, Brindle & White, Tan",
+                "weightMale": "9-14",
+                "weightFemale": "8-13",
+                "heightMale": "27-35",
+                "heightFemale": "24-32",
+                "fci": 101,
+                "fciGroup": 9,
+                "fciSection": 11,
+                "origin": "Frankreich",
+                "vdh": true,
+                "bod": true,
+                "coat": "Kurzhaar"
+            },
+            "links": [
+                {"name": "FCI Rassestandard", "url":"http://www.fci.be/Nomenclature/Standards/101g09-de.pdf"},
+                {"name": "VDH Rasselexikon", "url":"https://welpen.vdh.de/hunderassen/rasselexikon/ergebnis/franzoesische-bulldogge"}
+            ]
+        },
+        "australianShepherd" : {
+            "title": "Australian Shepherd",
+            "img": "https://images.unsplash.com/photo-1613750944954-bcb66ebc8491?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+            "attributes": [
+                {
+                    "id": "health",
+                    "title": "Gesundheit",
+                    "value": 2,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "exercise",
+                    "title": "Bewegungsdrang",
+                    "value": 4,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "human",
+                    "title": "Menschenbindung",
+                    "value": 3,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "beginner",
+                    "title": "Anfängerfreundlich",
+                    "value": 1,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "grooming",
+                    "title": "Pflegebedarf",
+                    "value": 2,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "social",
+                    "title": "Sozialverhalten",
+                    "value": 3,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "allergy",
+                    "title": "Allergieverträglich",
+                    "value": 3,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "barking",
+                    "title": "Meldetrieb",
+                    "value": 4,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                }
+            ],
+            "bioData": {
+                "lifeExpectancy": "13-15",
+                "colors": "White, Brindle, Fawn, Brindle & White, Tan",
+                "weightMale": "25-32",
+                "weightFemale": "16-25",
+                "heightMale": "51-58",
+                "heightFemale": "46-53",
+                "fci": 342,
+                "fciGroup": 1,
+                "fciSection": 1,
+                "origin": "Vereinigte Staaten von Amerika",
+                "vdh": true,
+                "bod": true,
+                "coat": "Langhaar"
+            },
+            "links": [
+                {"name": "FCI Rassestandard", "url":"http://www.fci.be/Nomenclature/Standards/342g01-de.pdf"},
+                {"name": "VDH Rasselexikon", "url":"https://welpen.vdh.de/hunderassen/rasselexikon/ergebnis/australian-shepherd"}
+            ]
+        }
+    }
+}

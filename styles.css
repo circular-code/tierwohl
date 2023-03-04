@@ -57,9 +57,13 @@ h4 {
 }
 
 .attribute-image {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     position: absolute;
+}
+
+.attribute-title {
+    text-transform: uppercase;
 }
 
 .attribute-dot {
@@ -73,4 +77,28 @@ h4 {
 .attribute-dots {
     display: flex;
     margin-left: 5rem;
+}
+
+.attribute-dot-filled.red {
+    background-color: #FF0000;
+}
+
+.attribute-dot-filled.orange {
+    background-color: #DF772B;
+}
+
+.attribute-dot-filled.yellow {
+    background-color: #DFCD2B;
+}
+
+.attribute-dot-filled.lemon {
+    background-color: #90DF2B;
+}
+
+.attribute-dot-filled.green {
+    background-color: #39DF2B;
+}
+
+.attribute-details {
+    display: none;
 }
