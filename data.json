@@ -84,12 +84,10 @@
                 "weightFemale": "8-13",
                 "heightMale": "27-35",
                 "heightFemale": "24-32",
-                "fci": 101,
-                "fciGroup": 9,
-                "fciSection": 11,
+                "fci": "101,9,11",
                 "origin": "Frankreich",
                 "vdh": true,
-                "bod": true,
+                "bod": "Bei dieser Rasse ist Qualzucht weil...",
                 "coat": "Kurzhaar"
             },
             "links": [
@@ -181,12 +179,10 @@
                 "weightFemale": "16-25",
                 "heightMale": "51-58",
                 "heightFemale": "46-53",
-                "fci": 342,
-                "fciGroup": 1,
-                "fciSection": 1,
+                "fci": "342,1,1",
                 "origin": "Vereinigte Staaten von Amerika",
                 "vdh": true,
-                "bod": true,
+                "bod": "Bei dieser Rasse ist Qualzucht weil...",
                 "coat": "Langhaar"
             },
             "links": [

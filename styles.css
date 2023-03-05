@@ -16,6 +16,34 @@ body {
     font-family: 'Inter', 'sans-serif';
     max-width: 1024px;
     margin: 0 auto;
+    color: #483828;
+}
+
+#vdh,
+#fci {
+    display: none;
+    height: 4rem;
+    position: relative;
+    top: 1rem;
+    left: 0.5rem;
+}
+
+#bodImg {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10rem;
+    height: 10rem;
+}
+
+#bod {
+    margin: 4rem 6rem 0 6rem;
+    background: #ee404c;
+    padding: 2rem;
+    padding-top: 0.5rem;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
 }
 
 #race {
@@ -25,9 +53,10 @@ body {
     text-align: center;
 }
 
-h1 {
+h2 {
     font-size: 2.4rem;
     font-weight: 600;
+    position: relative;
 }
 
 h4 {
@@ -36,8 +65,8 @@ h4 {
 }
 
 .picture {
-    width: 50rem;
-    height: 50rem;
+    width: 40rem;
+    height: 40rem;
     object-fit: cover;
     border-radius: 5.8rem;
 }
@@ -45,24 +74,46 @@ h4 {
 #attributes {
     display: flex;
     flex-wrap: wrap;
+    padding-right: 3rem;
+}
+
+.container {
     text-align: left;
+    padding: 2rem 6rem;
+}
+
+.attribute {
+    flex-grow: 1;
+}
+
+#racePictureContainer {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.content-container {
+    padding: 2rem;
+    border-radius: 8px;
+    background-color: #F3F3F3;
+    width: auto;
 }
 
 .attribute-container {
-    padding: 1rem;
-    margin-right: 1rem;
-    border-radius: 8px;
-    background-color: #F3F3F3;
-    width: 25rem;
+    min-width: 25rem;
+    margin-right: 3rem;
 }
 
-.attribute-image {
-    width: 3rem;
-    height: 3rem;
-    position: absolute;
+.icon {
+    width: 4rem;
+    height: 4rem;
+    position: relative;
+    bottom: 0.5rem;
+    float: left;
+    right: 0.5rem;
 }
 
-.attribute-title {
+h4 {
     text-transform: uppercase;
 }
 
@@ -80,7 +131,7 @@ h4 {
 }
 
 .attribute-dot-filled.red {
-    background-color: #FF0000;
+    background-color: #ee404c;
 }
 
 .attribute-dot-filled.orange {

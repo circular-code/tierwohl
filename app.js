@@ -12,7 +12,12 @@
         dom: {
             attributes: document.getElementById('attributes'),
             racePicture: document.getElementById('racePicture'),
-            raceTitle: document.getElementById('raceTitle')
+            raceTitle: document.getElementById('raceTitle'),
+            vdh: document.getElementById('vdh'),
+            fci: document.getElementById('fci'),
+            bod: document.getElementById('bod'),
+            bodImg: document.getElementById('bodImg'),
+            bodText: document.getElementById('bodText')
         }
     };
 
@@ -24,8 +29,8 @@
         dom.className = 'attribute';
         dom.innerHTML = `
             <h4 class="attribute-title">${data.title}</h4>
-            <div class="attribute-container">
-                <img src="icons/dog-${data.id}.svg" alt="${data.title}" class="attribute-image">
+            <div class="attribute-container content-container">
+                <img src="icons/dog-${data.id}.svg" alt="${data.title}" class="icon">
                 <div class="attribute-dots">
                     <div class="${color} attribute-dot${data.value > 0 ? " attribute-dot-filled" : ""}"></div>
                     <div class="${color} attribute-dot${data.value > 1 ? " attribute-dot-filled" : ""}"></div>
@@ -54,6 +59,17 @@
 
         app.dom.racePicture.src = app.data.race.img;
         app.dom.raceTitle.textContent = app.data.race.title;
+
+        if (app.data.race.bioData && app.data.race.bioData.vdh)
+            app.dom.vdh.style.display = 'inline';
+
+        if (app.data.race.bioData && app.data.race.bioData.fci)
+            app.dom.fci.style.display = 'inline';
+
+        if (app.data.race.bioData && app.data.race.bioData.bod) {
+            app.dom.bodImg.style.display = 'block';
+            app.dom.bodText.textContent = app.data.race.bioData.bod;
+        }
 
         app.data.race.attributes.forEach(attribute => {
             app.dom.attributes.appendChild(app.create.attribute(attribute));
