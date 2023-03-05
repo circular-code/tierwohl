@@ -6,11 +6,12 @@
             query: getQueryParams(document.location.search),
             attributeDotColorLookupPositive: ["", "red","orange","yellow","lemon","green"],
             attributeDotColorLookupNegative: ["", "green", "lemon", "yellow", "orange", "red"],
-            attributeTypeLookup: {health: 1, excercise: -1, human: 1, beginner: 1, grooming: -1, social: 1, allergy: 1, barking: -1}
+            attributeTypeLookup: {health: 1, excercise: -1, human: 1, grooming: -1, allergy: 1, barking: -1}
         },
         fn: {},
         dom: {
             attributes: document.getElementById('attributes'),
+            drives: document.getElementById('drives'),
             racePicture: document.getElementById('racePicture'),
             raceTitle: document.getElementById('raceTitle'),
             vdh: document.getElementById('vdh'),
@@ -30,7 +31,7 @@
         dom.innerHTML = `
             <h4 class="attribute-title">${data.title}</h4>
             <div class="attribute-container content-container">
-                <img src="icons/dog-${data.id}.svg" alt="${data.title}" class="icon">
+                <img ${data.id === "herding" ? 'style="transform: scaleX(-1);"' : ''} src="icons/dog-${data.id}.svg" alt="${data.title}" class="icon">
                 <div class="attribute-dots">
                     <div class="${color} attribute-dot${data.value > 0 ? " attribute-dot-filled" : ""}"></div>
                     <div class="${color} attribute-dot${data.value > 1 ? " attribute-dot-filled" : ""}"></div>
@@ -73,6 +74,10 @@
 
         app.data.race.attributes.forEach(attribute => {
             app.dom.attributes.appendChild(app.create.attribute(attribute));
+        });
+
+        app.data.race.drives.forEach(attribute => {
+            app.dom.drives.appendChild(app.create.attribute(attribute));
         });
     };
 

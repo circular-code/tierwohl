@@ -71,7 +71,14 @@ h4 {
     border-radius: 5.8rem;
 }
 
-#attributes {
+#driveSeperator {
+    padding-bottom: 0rem;
+    padding-top: 1rem;
+    margin-bottom: -1rem;
+}
+
+#attributes,
+#drives {
     display: flex;
     flex-wrap: wrap;
     padding-right: 3rem;

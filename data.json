@@ -14,6 +14,15 @@
                     ]
                 },
                 {
+                    "id": "beginner",
+                    "title": "Anfängerfreundlich",
+                    "value": 3,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
                     "id": "exercise",
                     "title": "Bewegungsdrang",
                     "value": 2,
@@ -32,27 +41,9 @@
                     ]
                 },
                 {
-                    "id": "beginner",
-                    "title": "Anfängerfreundlich",
-                    "value": 4,
-                    "details": [
-                        "Detail 1",
-                        "Detail 2"
-                    ]
-                },
-                {
                     "id": "grooming",
                     "title": "Pflegebedarf",
                     "value": 5,
-                    "details": [
-                        "Detail 1",
-                        "Detail 2"
-                    ]
-                },
-                {
-                    "id": "social",
-                    "title": "Sozialverhalten",
-                    "value": 2,
                     "details": [
                         "Detail 1",
                         "Detail 2"
@@ -66,11 +57,42 @@
                         "Detail 1",
                         "Detail 2"
                     ]
-                },
+                }
+            ],
+            
+            "drives" : [
+                
                 {
                     "id": "barking",
                     "title": "Meldetrieb",
-                    "value": 5,
+                    "value": 4,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "protection",
+                    "title": "Schutztrieb",
+                    "value": 3,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "herding",
+                    "title": "Hütetrieb",
+                    "value": 4,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "hunting",
+                    "title": "Jagdtrieb",
+                    "value": 1,
                     "details": [
                         "Detail 1",
                         "Detail 2"
@@ -88,7 +110,9 @@
                 "origin": "Frankreich",
                 "vdh": true,
                 "bod": "Bei dieser Rasse ist Qualzucht weil...",
-                "coat": "Kurzhaar"
+                "coat": "Kurzhaar",
+                "beginnerFriendly": 0,
+                "listedDog": "BW,BR"
             },
             "links": [
                 {"name": "FCI Rassestandard", "url":"http://www.fci.be/Nomenclature/Standards/101g09-de.pdf"},
@@ -109,6 +133,15 @@
                     ]
                 },
                 {
+                    "id": "beginner",
+                    "title": "Anfängerfreundlich",
+                    "value": 3,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
                     "id": "exercise",
                     "title": "Bewegungsdrang",
                     "value": 4,
@@ -127,27 +160,9 @@
                     ]
                 },
                 {
-                    "id": "beginner",
-                    "title": "Anfängerfreundlich",
-                    "value": 1,
-                    "details": [
-                        "Detail 1",
-                        "Detail 2"
-                    ]
-                },
-                {
                     "id": "grooming",
                     "title": "Pflegebedarf",
                     "value": 2,
-                    "details": [
-                        "Detail 1",
-                        "Detail 2"
-                    ]
-                },
-                {
-                    "id": "social",
-                    "title": "Sozialverhalten",
-                    "value": 3,
                     "details": [
                         "Detail 1",
                         "Detail 2"
@@ -161,11 +176,41 @@
                         "Detail 1",
                         "Detail 2"
                     ]
-                },
+                }
+            ],
+            "drives" : [
+                
                 {
                     "id": "barking",
                     "title": "Meldetrieb",
                     "value": 4,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "protection",
+                    "title": "Schutztrieb",
+                    "value": 3,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "herding",
+                    "title": "Hütetrieb",
+                    "value": 4,
+                    "details": [
+                        "Detail 1",
+                        "Detail 2"
+                    ]
+                },
+                {
+                    "id": "hunting",
+                    "title": "Jagdtrieb",
+                    "value": 1,
                     "details": [
                         "Detail 1",
                         "Detail 2"
@@ -183,7 +228,9 @@
                 "origin": "Vereinigte Staaten von Amerika",
                 "vdh": true,
                 "bod": "Bei dieser Rasse ist Qualzucht weil...",
-                "coat": "Langhaar"
+                "coat": "Langhaar",
+                "beginnerFriendly": 0,
+                "listedDog": "BW,BR"
             },
             "links": [
                 {"name": "FCI Rassestandard", "url":"http://www.fci.be/Nomenclature/Standards/342g01-de.pdf"},
