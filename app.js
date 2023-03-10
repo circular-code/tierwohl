@@ -19,6 +19,7 @@
             fci: document.getElementById('fci'),
             bod: document.getElementById('bod'),
             bodText: document.getElementById('bodText'),
+            listed: document.getElementById('listed'),
             listedText: document.getElementById('listedText'),
             originIcon: document.getElementById('originIcon'),
             originTitle: document.getElementById('originTitle'),
@@ -71,11 +72,19 @@
             if (app.data.race.bioData.fci)
                 app.dom.fci.style.display = 'inline';
     
-            if (app.data.race.bioData.bod)
+            if (app.data.race.bioData.bod) {
+                app.dom.bod.style.display = 'block';
                 app.dom.bodText.textContent = app.data.race.bioData.bod;
+            }
+            else
+                app.dom.bod.style.display = 'none';
     
-            if (app.data.race.bioData.listedDog && app.data.race.bioData.listedDog instanceof Array && app.data.race.bioData.listedDog.length > 0)
+            if (app.data.race.bioData.listedDog && app.data.race.bioData.listedDog instanceof Array && app.data.race.bioData.listedDog.length > 0) {
+                app.dom.listed.style.display = 'block';
                 app.dom.listedText.innerHTML = "Steht in folgenden Bundesländern auf der Liste für gefährliche Hunde:<br><b>" + (app.data.race.bioData.listedDog.join(", ") || "") + "</b>";
+            }
+            else
+                app.dom.listed.style.display = 'none';
     
             if (app.data.race.bioData.origin) {
                 app.dom.originIcon.src = `icons/country-${app.data.race.bioData.origin}.svg`;
