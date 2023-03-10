@@ -59,9 +59,7 @@
                     ]
                 }
             ],
-            
             "drives" : [
-                
                 {
                     "id": "barking",
                     "title": "Meldetrieb",
@@ -107,12 +105,12 @@
                 "heightMale": "27-35",
                 "heightFemale": "24-32",
                 "fci": "101,9,11",
-                "origin": "Frankreich",
+                "origin": "FR",
                 "vdh": true,
                 "bod": "Bei dieser Rasse ist Qualzucht weil...",
                 "coat": "Kurzhaar",
                 "beginnerFriendly": 0,
-                "listedDog": "BW,BR"
+                "listedDog": ["BW","BR"]
             },
             "links": [
                 {"name": "FCI Rassestandard", "url":"http://www.fci.be/Nomenclature/Standards/101g09-de.pdf"},
@@ -179,7 +177,6 @@
                 }
             ],
             "drives" : [
-                
                 {
                     "id": "barking",
                     "title": "Meldetrieb",
@@ -225,12 +222,12 @@
                 "heightMale": "51-58",
                 "heightFemale": "46-53",
                 "fci": "342,1,1",
-                "origin": "Vereinigte Staaten von Amerika",
+                "origin": "USA",
                 "vdh": true,
                 "bod": "Bei dieser Rasse ist Qualzucht weil...",
                 "coat": "Langhaar",
                 "beginnerFriendly": 0,
-                "listedDog": "BW,BR"
+                "listedDog": []
             },
             "links": [
                 {"name": "FCI Rassestandard", "url":"http://www.fci.be/Nomenclature/Standards/342g01-de.pdf"},

@@ -6,7 +6,8 @@
             query: getQueryParams(document.location.search),
             attributeDotColorLookupPositive: ["", "red","orange","yellow","lemon","green"],
             attributeDotColorLookupNegative: ["", "green", "lemon", "yellow", "orange", "red"],
-            attributeTypeLookup: {health: 1, excercise: -1, human: 1, grooming: -1, allergy: 1, barking: -1}
+            attributeTypeLookup: {health: 1, excercise: -1, human: 1, grooming: -1, allergy: 1, barking: -1},
+            countryNameLookup: {"UK": "Groß Britannien", "FR": "Frankreich", "USA": "Vereinigte Staaten von Amerika"}
         },
         fn: {},
         dom: {
@@ -17,8 +18,10 @@
             vdh: document.getElementById('vdh'),
             fci: document.getElementById('fci'),
             bod: document.getElementById('bod'),
-            bodImg: document.getElementById('bodImg'),
-            bodText: document.getElementById('bodText')
+            bodText: document.getElementById('bodText'),
+            listedText: document.getElementById('listedText'),
+            originIcon: document.getElementById('originIcon'),
+            originTitle: document.getElementById('originTitle'),
         }
     };
 
@@ -61,15 +64,23 @@
         app.dom.racePicture.src = app.data.race.img;
         app.dom.raceTitle.textContent = app.data.race.title;
 
-        if (app.data.race.bioData && app.data.race.bioData.vdh)
-            app.dom.vdh.style.display = 'inline';
-
-        if (app.data.race.bioData && app.data.race.bioData.fci)
-            app.dom.fci.style.display = 'inline';
-
-        if (app.data.race.bioData && app.data.race.bioData.bod) {
-            app.dom.bodImg.style.display = 'block';
-            app.dom.bodText.textContent = app.data.race.bioData.bod;
+        if (app.data.race.bioData) {
+            if (app.data.race.bioData.vdh)
+                app.dom.vdh.style.display = 'inline';
+    
+            if (app.data.race.bioData.fci)
+                app.dom.fci.style.display = 'inline';
+    
+            if (app.data.race.bioData.bod)
+                app.dom.bodText.textContent = app.data.race.bioData.bod;
+    
+            if (app.data.race.bioData.listedDog && app.data.race.bioData.listedDog instanceof Array && app.data.race.bioData.listedDog.length > 0)
+                app.dom.listedText.innerHTML = "Steht in folgenden Bundesländern auf der Liste für gefährliche Hunde:<br><b>" + (app.data.race.bioData.listedDog.join(", ") || "") + "</b>";
+    
+            if (app.data.race.bioData.origin) {
+                app.dom.originIcon.src = `icons/country-${app.data.race.bioData.origin}.svg`;
+                app.dom.originTitle.textContent = app.data.countryNameLookup[app.data.race.bioData.origin];
+            }
         }
 
         app.data.race.attributes.forEach(attribute => {

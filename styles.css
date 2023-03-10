@@ -37,13 +37,24 @@ body {
     height: 10rem;
 }
 
-#bod {
-    margin: 4rem 6rem 0 6rem;
-    background: #ee404c;
+.toast {
+    margin: 2rem 6rem 0 6rem;
     padding: 2rem;
     padding-top: 0.5rem;
     border-radius: 8px;
     color: rgb(255, 255, 255);
+}
+
+.toast.warning {
+    background: #ee404c;
+}
+
+#race h3 {
+    margin-bottom: 1rem;
+}
+
+.toast.hint {
+    background: #4086ee;
 }
 
 #race {
@@ -109,6 +120,15 @@ h4 {
 .attribute-container {
     min-width: 25rem;
     margin-right: 3rem;
+}
+
+#originIcon {
+    bottom: 1rem;
+    right: 1rem;
+}
+
+#originTitle {
+    font-weight: bold;
 }
 
 .icon {
