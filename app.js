@@ -48,6 +48,7 @@
             weightFemale: document.getElementById('weightFemale'),
             heightMale: document.getElementById('heightMale'),
             heightFemale: document.getElementById('heightFemale'),
+            characterText: document.getElementById('characterText')
         }
     };
 
@@ -68,13 +69,25 @@
                     <div class="${color} attribute-dot${data.value > 3 ? " attribute-dot-filled" : ""}"></div>
                     <div class="${color} attribute-dot${data.value > 4 ? " attribute-dot-filled" : ""}"></div>
                 </div>
-                <div class="attribute-details">
+                <div class="attribute-details hidden">
                     <ul id="social-details">
                         ${data.details.map(detail => '<li>' + detail + '</li>').join('')}
                     </ul>
                 </div>
             </div>
         `;
+
+        dom.addEventListener('click', function() {
+            const details = dom.querySelector('.attribute-details');
+            if (details.classList.contains('hidden')) {
+                dom.classList.add('open');
+                details.classList.remove('hidden')
+            }
+            else {
+                dom.classList.remove('open');
+                details.classList.add('hidden');
+            }
+        });
 
         return dom;
     }
@@ -126,6 +139,9 @@
                 app.dom.originIcon.src = `icons/country-${app.data.race.bioData.origin}.svg`;
                 app.dom.originTitle.textContent = app.data.countryNameLookup[app.data.race.bioData.origin];
             }
+
+            if (app.data.race.bioData.character)
+                app.dom.characterText.textContent = app.data.race.bioData.character;
 
             if (app.data.race.bioData.coatType)
                 app.dom.coatType.textContent = app.data.race.bioData.coatType;

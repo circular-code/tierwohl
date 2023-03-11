@@ -101,6 +101,7 @@
                 "lifeExpectancy": "10-14",
                 "colors": "White, Brindle, Fawn, Brindle & White, Tan",
                 "specialColors": "Black, Mouse, Liver, Black and Tan, Black and White, White with Black",
+                "character": "Umgänglich, fröhlich, verspielt, sportlich, aufgeweckt. Besonders liebevoll im Umgang mit ihren Besitzern und mit Kindern.",
                 "weightMale": "9-14",
                 "weightFemale": "8-13",
                 "heightMale": "27-35",
@@ -109,7 +110,7 @@
                 "origin": "FR",
                 "vdh": true,
                 "bod": "Bei dieser Rasse ist Qualzucht weil...",
-                "coatType": "Kurzhaar",
+                "coatType": "Schönes dichtes glänzendes und weiches Kurzhaar, ohne Unterwolle",
                 "listedDog": "Baden-Württemberg, Bayern"
             },
             "links": [
@@ -217,6 +218,8 @@
             "bioData": {
                 "lifeExpectancy": "13-15",
                 "colors": "White, Brindle, Fawn, Brindle & White, Tan",
+                "specialColors": "Black, Mouse, Liver, Black and Tan, Black and White, White with Black",
+                "character": "Umgänglich, fröhlich, verspielt, sportlich, aufgeweckt. Besonders liebevoll im Umgang mit ihren Besitzern und mit Kindern.",
                 "weightMale": "25-32",
                 "weightFemale": "16-25",
                 "heightMale": "51-58",
@@ -225,7 +228,7 @@
                 "origin": "USA",
                 "vdh": true,
                 "bod": "",
-                "coat": "Langhaar",
+                "coatType": "Langhaar",
                 "listedDog": ""
             },
             "links": [

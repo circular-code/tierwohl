@@ -97,7 +97,11 @@ h4 {
 
 .container {
     text-align: left;
-    padding: 2rem 6rem;
+    padding: 2rem 6rem 0 6rem;
+}
+
+.container:last-child {
+    padding-bottom: 2rem;
 }
 
 .attribute {
@@ -199,6 +203,14 @@ h4 {
     background-color: #39DF2B;
 }
 
-.attribute-details {
+.hidden {
     display: none;
+}
+
+.attribute-details {
+    margin-top: 2rem;
+}
+
+.open .attribute-container {
+    border: 2px solid #4086ee85;
 }
