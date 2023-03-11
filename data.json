@@ -100,17 +100,17 @@
             "bioData": {
                 "lifeExpectancy": "10-14",
                 "colors": "White, Brindle, Fawn, Brindle & White, Tan",
+                "specialColors": "Black, Mouse, Liver, Black and Tan, Black and White, White with Black",
                 "weightMale": "9-14",
                 "weightFemale": "8-13",
                 "heightMale": "27-35",
                 "heightFemale": "24-32",
-                "fci": "101,9,11",
+                "fci": [101,9,11],
                 "origin": "FR",
                 "vdh": true,
                 "bod": "Bei dieser Rasse ist Qualzucht weil...",
-                "coat": "Kurzhaar",
-                "beginnerFriendly": 0,
-                "listedDog": ["BW","BR"]
+                "coatType": "Kurzhaar",
+                "listedDog": "Baden-Württemberg, Bayern"
             },
             "links": [
                 {"name": "FCI Rassestandard", "url":"http://www.fci.be/Nomenclature/Standards/101g09-de.pdf"},
@@ -221,13 +221,12 @@
                 "weightFemale": "16-25",
                 "heightMale": "51-58",
                 "heightFemale": "46-53",
-                "fci": "342,1,1",
+                "fci": [342,1,1],
                 "origin": "USA",
                 "vdh": true,
                 "bod": "",
                 "coat": "Langhaar",
-                "beginnerFriendly": 0,
-                "listedDog": []
+                "listedDog": ""
             },
             "links": [
                 {"name": "FCI Rassestandard", "url":"http://www.fci.be/Nomenclature/Standards/342g01-de.pdf"},

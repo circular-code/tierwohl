@@ -4,8 +4,8 @@
         create: {},
         data: {
             query: getQueryParams(document.location.search),
-            attributeDotColorLookupPositive: ["", "red","orange","yellow","lemon","green"],
-            attributeDotColorLookupNegative: ["", "green", "lemon", "yellow", "orange", "red"],
+            attributeDotColorLookupPositive: ["", "red","orange","yellow","lime","green"],
+            attributeDotColorLookupNegative: ["", "green", "lime", "yellow", "orange", "red"],
             attributeTypeLookup: {health: 1, excercise: -1, human: 1, grooming: -1, allergy: 1, barking: -1},
             countryNameLookup: {"UK": "Groß Britannien", "FR": "Frankreich", "USA": "Vereinigte Staaten von Amerika"}
         },
@@ -23,6 +23,10 @@
             listedText: document.getElementById('listedText'),
             originIcon: document.getElementById('originIcon'),
             originTitle: document.getElementById('originTitle'),
+            links: document.getElementById('links'),
+            coatType: document.getElementById('coatType'),
+            coatColors: document.getElementById('coatColors'),
+            coatSpecialColors: document.getElementById('coatSpecialColors')
         }
     };
 
@@ -54,6 +58,17 @@
         return dom;
     }
 
+    app.create.link = data => {
+        const dom = document.createElement('li');
+        const link = document.createElement('a');
+        link.textContent = data.name || "";
+        link.href = data.url || "#";
+        link.target = "_blank";
+
+        dom.appendChild(link);
+        return dom;
+    }
+
     app.init = async function() {
         await fetch('./data.json')
         .then((response) => response.json())
@@ -79,9 +94,9 @@
             else
                 app.dom.bod.style.display = 'none';
     
-            if (app.data.race.bioData.listedDog && app.data.race.bioData.listedDog instanceof Array && app.data.race.bioData.listedDog.length > 0) {
+            if (app.data.race.bioData.listedDog) {
                 app.dom.listed.style.display = 'block';
-                app.dom.listedText.innerHTML = "Steht in folgenden Bundesländern auf der Liste für gefährliche Hunde:<br><b>" + (app.data.race.bioData.listedDog.join(", ") || "") + "</b>";
+                app.dom.listedText.innerHTML = "Steht in folgenden Bundesländern auf der Liste für gefährliche Hunde:<br><b>" + app.data.race.bioData.listedDog + "</b>";
             }
             else
                 app.dom.listed.style.display = 'none';
@@ -90,6 +105,15 @@
                 app.dom.originIcon.src = `icons/country-${app.data.race.bioData.origin}.svg`;
                 app.dom.originTitle.textContent = app.data.countryNameLookup[app.data.race.bioData.origin];
             }
+
+            if (app.data.race.bioData.coatType)
+                app.dom.coatType.textContent = app.data.race.bioData.coatType;
+
+            if (app.data.race.bioData.colors)
+                app.dom.coatColors.textContent = app.data.race.bioData.colors;
+
+            if (app.data.race.bioData.specialColors)
+                app.dom.coatSpecialColors.textContent = app.data.race.bioData.specialColors;
         }
 
         app.data.race.attributes.forEach(attribute => {
@@ -98,6 +122,10 @@
 
         app.data.race.drives.forEach(attribute => {
             app.dom.drives.appendChild(app.create.attribute(attribute));
+        });
+
+        app.data.race.links.forEach(link => {
+            app.dom.links.appendChild(app.create.link(link));
         });
     };
 

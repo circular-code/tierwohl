@@ -127,6 +127,28 @@ h4 {
     right: 1rem;
 }
 
+ul {
+    margin: 0;
+    padding: 0 1rem;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-container {
+    margin-bottom: 1rem;
+}
+
+.inline-container:last-child {
+    margin-bottom: 0;
+}
+
+#coat h5 {
+    margin-right: 1rem;
+    font-size: 1.35rem;
+}
+
 #originTitle {
     font-weight: bold;
 }
@@ -169,7 +191,7 @@ h4 {
     background-color: #DFCD2B;
 }
 
-.attribute-dot-filled.lemon {
+.attribute-dot-filled.lime {
     background-color: #90DF2B;
 }
 
