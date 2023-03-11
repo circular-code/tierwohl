@@ -7,7 +7,21 @@
             attributeDotColorLookupPositive: ["", "red","orange","yellow","lime","green"],
             attributeDotColorLookupNegative: ["", "green", "lime", "yellow", "orange", "red"],
             attributeTypeLookup: {health: 1, excercise: -1, human: 1, grooming: -1, allergy: 1, barking: -1},
-            countryNameLookup: {"UK": "Groß Britannien", "FR": "Frankreich", "USA": "Vereinigte Staaten von Amerika"}
+            countryNameLookup: {"UK": "Groß Britannien", "FR": "Frankreich", "USA": "Vereinigte Staaten von Amerika"},
+            fciMainLookup: ["", "Hütehunde und Treibhunde (ausgenommen Schweizer Sennenhunde)", "Pinscher und Schnauzer - Molosser - Schweizer Sennenhunde", "Terrier", "Dachshunde", "Spitze und Hunde vom Urtyp", "Laufhunde, Schweisshunde und verwandte Rassen", "Vorstehhunde", "Apportierhunde - Stöberhunde - Wasserhunde", "Gesellschafts- und Begleithunde", "Windhunde"],
+            // fciSecondaryLookup: [
+            //     [""],
+            //     ["", "Schäferhunde", "Treibhunde (ausgenommen Schweizer Sennenhunde)"],
+            //     ["", "Pinscher und Schnauzer", "Molossoide", "Schweizer Sennenhunde"],
+            //     ["", "Hochläufige Terrier", "Niederläufige Terrier", "Bullartige Terrier", "Zwerg-Terriers"],
+            //     ["", "-"],
+            //     ["","Nordische Schlittenhunde","Nordische Jagdhunde","Nordische Wach- und Hütehunde","Europäische Spitze","Asiatische Spitze und verwandte Rassen","Urtyp","Urtyp - Hunde zur jagdlichen Verwendung"],
+            //     ["","Laufhunde", "Schweisshunde","Verwandte Rassen"],
+            //     ["","Kontinentale Vorstehhunde","Britische und Irische Vorstehhunde"],
+            //     ["","Apportierhunde","Stöberhunde","Wasserhunde"],
+            //     ["","Bichons und verwandte Rassen","Pudel","Kleine belgische Hunderassen","Haarlose Hunde","Tibetanische Hunderassen","Chihuahueno","Englische Gesellschaftsspaniel","Japanische Spaniel und Pekingesen","Kontinentaler Zwergspaniel und andere","Kromfohrländer","Kleine doggenartige Hunde"],
+            //     ["","Langhaarige oder befederte Windhunde","Rauhhaarige Windhunde","Kurzhaarige Windhunde"],
+            // ]
         },
         fn: {},
         dom: {
@@ -26,7 +40,14 @@
             links: document.getElementById('links'),
             coatType: document.getElementById('coatType'),
             coatColors: document.getElementById('coatColors'),
-            coatSpecialColors: document.getElementById('coatSpecialColors')
+            coatSpecialColors: document.getElementById('coatSpecialColors'),
+            fciMain: document.getElementById('fciMain'),
+            fciSecondary: document.getElementById('fciSecondary'),
+            lifeExpectancy: document.getElementById('lifeExpectancy'),
+            weightMale: document.getElementById('weightMale'),
+            weightFemale: document.getElementById('weightFemale'),
+            heightMale: document.getElementById('heightMale'),
+            heightFemale: document.getElementById('heightFemale'),
         }
     };
 
@@ -114,6 +135,26 @@
 
             if (app.data.race.bioData.specialColors)
                 app.dom.coatSpecialColors.textContent = app.data.race.bioData.specialColors;
+
+            if (app.data.race.bioData.fci && app.data.race.bioData.fci instanceof Array && app.data.race.bioData.fci.length > 1) {
+                app.dom.fciMain.textContent = app.data.fciMainLookup[app.data.race.bioData.fci[0]];
+                // app.dom.fciSecondary.textContent = app.data.fciSecondaryLookup[app.data.race.bioData.fci[0]][app.data.race.bioData.fci[1]];
+            }
+
+            if (app.data.race.bioData.lifeExpectancy)
+                app.dom.lifeExpectancy.textContent = app.data.race.bioData.lifeExpectancy + " Jahre";
+
+            if (app.data.race.bioData.weightMale)
+                app.dom.weightMale.textContent = app.data.race.bioData.weightMale + "kg";
+
+            if (app.data.race.bioData.weightFemale)
+                app.dom.weightFemale.textContent = app.data.race.bioData.weightFemale + "kg";                
+
+            if (app.data.race.bioData.heightMale)
+                app.dom.heightMale.textContent = app.data.race.bioData.heightMale + "cm Schulterhöhe, ";
+
+            if (app.data.race.bioData.heightFemale)
+                app.dom.heightFemale.textContent = app.data.race.bioData.heightFemale + "cm Schulterhöhe, ";
         }
 
         app.data.race.attributes.forEach(attribute => {
