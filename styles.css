@@ -20,7 +20,9 @@ body {
 }
 
 #vdh,
-#fci {
+.vdh,
+#fci,
+.fci {
     display: none;
     height: 4rem;
     position: relative;
@@ -28,8 +30,8 @@ body {
     left: 0.5rem;
 }
 
-#bodImg {
-    display: none;
+#bodImg,
+.bod-img {
     position: absolute;
     top: 0;
     right: 0;
@@ -49,7 +51,7 @@ body {
     background: #ee404c;
 }
 
-#race h3 {
+section h3 {
     margin-bottom: 1rem;
 }
 
@@ -57,12 +59,18 @@ body {
     background: #4086ee;
 }
 
-#race {
+section {
     background-color: #E8E1DA;
     border-radius: 8px;
     padding: 2rem;
     text-align: center;
 }
+
+#breed {
+    display: none;
+}
+
+.breed
 
 h2 {
     font-size: 2.4rem;
@@ -75,11 +83,40 @@ h4 {
     margin-top: 2rem;
 }
 
+#overview {
+    display: flex;
+}
+
+.breed {
+    padding: 2rem;
+    cursor: pointer;
+}
+
+nav {
+    margin: 2rem;
+}
+
+.breed .bod-img {
+    width: 5rem;
+    height: 5rem;
+    top: 1rem;
+    right: 1rem;
+}
+
 .picture {
     width: 40rem;
     height: 40rem;
     object-fit: cover;
     border-radius: 5.8rem;
+}
+
+.breed .picture {
+    height: 20rem;
+    width: 20rem;
+}
+
+.breed h2 {
+    font-size: 1.5rem;
 }
 
 #driveSeperator {
@@ -108,7 +145,8 @@ h4 {
     flex-grow: 1;
 }
 
-#racePictureContainer {
+#breedPictureContainer,
+.breed-picture-container {
     position: relative;
     width: fit-content;
     margin: 0 auto;
@@ -123,7 +161,12 @@ h4 {
 
 .attribute-container {
     min-width: 25rem;
-    margin-right: 3rem;
+    margin-right: 3rem;    
+    cursor: pointer;
+}
+
+.attribute-container:hover {
+    border: 2px solid #4086ee85;
 }
 
 #originIcon {

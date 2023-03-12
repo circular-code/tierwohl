@@ -1,6 +1,9 @@
+//TODO: add search and filtering
+// add caret/info icon to show that you can click on attributes
+// prevent styling from "wiggeling" when hovering over or clicking on attribute-container
+
 {
     var app = {
-        race: "frenchBullDog",
         create: {},
         data: {
             query: getQueryParams(document.location.search),
@@ -27,8 +30,8 @@
         dom: {
             attributes: document.getElementById('attributes'),
             drives: document.getElementById('drives'),
-            racePicture: document.getElementById('racePicture'),
-            raceTitle: document.getElementById('raceTitle'),
+            breedPicture: document.getElementById('breedPicture'),
+            breedTitle: document.getElementById('breedTitle'),
             vdh: document.getElementById('vdh'),
             fci: document.getElementById('fci'),
             bod: document.getElementById('bod'),
@@ -48,7 +51,8 @@
             weightFemale: document.getElementById('weightFemale'),
             heightMale: document.getElementById('heightMale'),
             heightFemale: document.getElementById('heightFemale'),
-            characterText: document.getElementById('characterText')
+            characterText: document.getElementById('characterText'),
+            overview: document.getElementById('overview')
         }
     };
 
@@ -101,88 +105,127 @@
 
         dom.appendChild(link);
         return dom;
+    };
+
+    app.create.breed = (breedKey, breed) => {
+        const dom = document.createElement('div');
+        dom.id = breedKey;
+        dom.className = 'breed';
+        dom.innerHTML = `
+            <h2>
+                <span class="breed-title">${breed.title}</span>
+                <img class="vdh" src="https://upload.wikimedia.org/wikipedia/commons/9/90/VDH_Logo.svg" title="Anerkannt durch den VDH (Verband für Deutsche Hundewesen)" alt="Anerkannt durch den VDH (Verband für Deutsche Hundewesen)">
+                <img class="fci" src="https://upload.wikimedia.org/wikipedia/de/e/ea/FCI_Logo.svg" title="Anerkannt durch die FCI (Fédération Cynologique Internationale)" alt="Anerkannt durch die FCI (Fédération Cynologique Internationale)">
+            </h2>
+            <div class="breed-picture-container">
+                <img class="breed-picture picture" src="${breed.img}" alt="breed">
+                ${breed.bioData.bod ? '<img class="bod-img" class="icon" src="icons/warning.svg" title="Warnung: Qualzucht, Details siehe unten" alt="Warnung: Qualzucht, Details siehe unten">' : ''}
+            </div>
+        `;
+
+        dom.addEventListener('click', function() {
+           location.href = 'http://' + location.host + location.pathname + "?breed=" + breedKey;
+        });
+
+        return dom;
     }
 
-    app.init = async function() {
-        await fetch('./data.json')
-        .then((response) => response.json())
-        .then((json) => app.data.race = json["races"][app.data.query.race]);
+    app.initialiseBreed = breed => {
 
-        if (!app.data.race)
-            return;
+        app.dom.overview.style.display = 'none';
+        document.getElementById('breed').style.display = 'block';
 
-        app.dom.racePicture.src = app.data.race.img;
-        app.dom.raceTitle.textContent = app.data.race.title;
+        app.dom.breedPicture.src = breed.img;
+        app.dom.breedTitle.textContent = breed.title;
 
-        if (app.data.race.bioData) {
-            if (app.data.race.bioData.vdh)
+        if (breed.bioData) {
+            if (breed.bioData.vdh)
                 app.dom.vdh.style.display = 'inline';
     
-            if (app.data.race.bioData.fci)
+            if (breed.bioData.fci)
                 app.dom.fci.style.display = 'inline';
     
-            if (app.data.race.bioData.bod) {
+            if (breed.bioData.bod) {
                 app.dom.bod.style.display = 'block';
-                app.dom.bodText.textContent = app.data.race.bioData.bod;
+                app.dom.bodText.textContent = breed.bioData.bod;
             }
             else
                 app.dom.bod.style.display = 'none';
     
-            if (app.data.race.bioData.listedDog) {
+            if (breed.bioData.listedDog) {
                 app.dom.listed.style.display = 'block';
-                app.dom.listedText.innerHTML = "Steht in folgenden Bundesländern auf der Liste für gefährliche Hunde:<br><b>" + app.data.race.bioData.listedDog + "</b>";
+                app.dom.listedText.innerHTML = "Steht in folgenden Bundesländern auf der Liste für gefährliche Hunde:<br><b>" + breed.bioData.listedDog + "</b>";
             }
             else
                 app.dom.listed.style.display = 'none';
     
-            if (app.data.race.bioData.origin) {
-                app.dom.originIcon.src = `icons/country-${app.data.race.bioData.origin}.svg`;
-                app.dom.originTitle.textContent = app.data.countryNameLookup[app.data.race.bioData.origin];
+            if (breed.bioData.origin) {
+                app.dom.originIcon.src = `icons/country-${breed.bioData.origin}.svg`;
+                app.dom.originTitle.textContent = app.data.countryNameLookup[breed.bioData.origin];
             }
 
-            if (app.data.race.bioData.character)
-                app.dom.characterText.textContent = app.data.race.bioData.character;
+            if (breed.bioData.character)
+                app.dom.characterText.textContent = breed.bioData.character;
 
-            if (app.data.race.bioData.coatType)
-                app.dom.coatType.textContent = app.data.race.bioData.coatType;
+            if (breed.bioData.coatType)
+                app.dom.coatType.textContent = breed.bioData.coatType;
 
-            if (app.data.race.bioData.colors)
-                app.dom.coatColors.textContent = app.data.race.bioData.colors;
+            if (breed.bioData.colors)
+                app.dom.coatColors.textContent = breed.bioData.colors;
 
-            if (app.data.race.bioData.specialColors)
-                app.dom.coatSpecialColors.textContent = app.data.race.bioData.specialColors;
+            if (breed.bioData.specialColors)
+                app.dom.coatSpecialColors.textContent = breed.bioData.specialColors;
 
-            if (app.data.race.bioData.fci && app.data.race.bioData.fci instanceof Array && app.data.race.bioData.fci.length > 1) {
-                app.dom.fciMain.textContent = app.data.fciMainLookup[app.data.race.bioData.fci[0]];
-                // app.dom.fciSecondary.textContent = app.data.fciSecondaryLookup[app.data.race.bioData.fci[0]][app.data.race.bioData.fci[1]];
+            if (breed.bioData.fci && breed.bioData.fci instanceof Array && breed.bioData.fci.length > 1) {
+                app.dom.fciMain.textContent = app.data.fciMainLookup[breed.bioData.fci[0]];
+                // app.dom.fciSecondary.textContent = app.data.fciSecondaryLookup[breed.bioData.fci[0]][breed.bioData.fci[1]];
             }
 
-            if (app.data.race.bioData.lifeExpectancy)
-                app.dom.lifeExpectancy.textContent = app.data.race.bioData.lifeExpectancy + " Jahre";
+            if (breed.bioData.lifeExpectancy)
+                app.dom.lifeExpectancy.textContent = breed.bioData.lifeExpectancy + " Jahre";
 
-            if (app.data.race.bioData.weightMale)
-                app.dom.weightMale.textContent = app.data.race.bioData.weightMale + "kg";
+            if (breed.bioData.weightMale)
+                app.dom.weightMale.textContent = breed.bioData.weightMale + "kg";
 
-            if (app.data.race.bioData.weightFemale)
-                app.dom.weightFemale.textContent = app.data.race.bioData.weightFemale + "kg";                
+            if (breed.bioData.weightFemale)
+                app.dom.weightFemale.textContent = breed.bioData.weightFemale + "kg";                
 
-            if (app.data.race.bioData.heightMale)
-                app.dom.heightMale.textContent = app.data.race.bioData.heightMale + "cm Schulterhöhe, ";
+            if (breed.bioData.heightMale)
+                app.dom.heightMale.textContent = breed.bioData.heightMale + "cm Schulterhöhe, ";
 
-            if (app.data.race.bioData.heightFemale)
-                app.dom.heightFemale.textContent = app.data.race.bioData.heightFemale + "cm Schulterhöhe, ";
+            if (breed.bioData.heightFemale)
+                app.dom.heightFemale.textContent = breed.bioData.heightFemale + "cm Schulterhöhe, ";
         }
 
-        app.data.race.attributes.forEach(attribute => {
+        breed.attributes.forEach(attribute => {
             app.dom.attributes.appendChild(app.create.attribute(attribute));
         });
 
-        app.data.race.drives.forEach(attribute => {
+        breed.drives.forEach(attribute => {
             app.dom.drives.appendChild(app.create.attribute(attribute));
         });
 
-        app.data.race.links.forEach(link => {
+        breed.links.forEach(link => {
             app.dom.links.appendChild(app.create.link(link));
+        });
+    };
+
+    app.initialiseOverview = breeds => {
+        for (const key in breeds)
+            app.dom.overview.appendChild(app.create.breed(key, breeds[key]));
+    };
+
+    app.init = async () => {
+        await fetch('./data.json')
+        .then((response) => response.json())
+        .then(json => {
+            const breeds = json["breeds"]; 
+            const breed = json["breeds"][app.data.query.breed];
+
+            if (breed)
+                return app.initialiseBreed(breed);
+
+            app.initialiseOverview(breeds);
         });
     };
 

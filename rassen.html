@@ -16,85 +16,86 @@
     </ul>
   </nav>
   <main>
-    <section id="welcome" class="grid">
-        <div id="race">
-            <h2>
-              <span id="raceTitle"></span>
-              <img id="vdh" src="https://upload.wikimedia.org/wikipedia/commons/9/90/VDH_Logo.svg" title="Anerkannt durch den VDH (Verband für Deutsche Hundewesen)" alt="Anerkannt durch den VDH (Verband für Deutsche Hundewesen)">
-              <img id="fci" src="https://upload.wikimedia.org/wikipedia/de/e/ea/FCI_Logo.svg" title="Anerkannt durch die FCI (Fédération Cynologique Internationale)" alt="Anerkannt durch die FCI (Fédération Cynologique Internationale)">
-            </h2>
-            <div id="racePictureContainer">
-              <img id="racePicture" class="picture" src="icons/placeholder.svg" alt="race">
-              <!--<img id="bodImg" class="icon" src="icons/warning.svg" title="Warnung: Qualzucht, Details siehe unten" alt="Warnung: Qualzucht, Details siehe unten">-->
-            </div>
-            <div id="bod" class="toast warning"><h3>Warnung: Qualzucht</h3><span id="bodText"></span></div>
-            <div id="listed" class="toast hint"><h3>Hinweis: Listenhund</h3><span id="listedText"></span></div>
-            <div id="attributes" class="container"></div>
-            <div id="driveSeperator" class="container"></div>
-            <div id="drives" class="container"></div>
-            <div id="measurements" class="container">
-              <h4>Eckdaten</h4>
-              <div class="content-container">
-                <div class="inline-container">
-                  <h5 class="inline">FCI Gruppe:</h5>
-                  <span id="fciMain"></span>
-                </div>
-                <!-- <div class="inline-container">
-                  <h5 class="inline">FCI Sektion:</h5>
-                  <span id="fciSecondary"></span>
-                </div> -->
-                <div class="inline-container">
-                  <h5 class="inline">Lebenserwartung:</h5>
-                  <span id="lifeExpectancy"></span>
-                </div>
-                <div class="inline-container">
-                  <h5 class="inline">Hündin:</h5>
-                  <span id="heightFemale"></span>
-                  <span id="weightFemale"></span>
-                </div>
-                <div class="inline-container">
-                  <h5 class="inline">Rüde:</h5>
-                  <span id="heightMale"></span>
-                  <span id="weightMale"></span>
-                </div>
-              </div>
-            </div>
-            <div id="coat" class="container">
-              <h4>Fell</h4>
-              <div class="content-container">
-                <div class="inline-container">
-                  <h5 class="inline">Felltyp:</h5>
-                  <span id="coatType"></span>
-                </div>
-                <div class="inline-container">
-                  <h5 class="inline">Farben:</h5>
-                  <span id="coatColors"></span>
-                </div>
-                <div class="inline-container">
-                  <h5 class="inline">Fehlfarben:</h5>
-                  <span id="coatSpecialColors"></span>
-                </div>
-              </div>
-            </div>
-            <div id="character" class="container">
-              <h4>Wesen</h4>
-              <div class="content-container">
-                  <span id="characterText"></span>
-              </div>
-            </div>
-            <div id="origin" class="container">
-              <h4>Herkunft</h4>
-              <div class="content-container">
-                <img class="icon" src="icons/placeholder.svg" alt="Herkunft" id="originIcon"><span id="originTitle"></span>
-              </div>
-            </div>
-            <div class="container">
-                <h4>Weiterführende Links</h4>
-                <div class="content-container">
-                  <ul id="links"></ul>
-                </div>
-            </div>
+    <section id="overview">
+      <div id="search"></div>
+    </section>
+    <section id="breed" >
+      <h2>
+        <span id="breedTitle"></span>
+        <img id="vdh" src="https://upload.wikimedia.org/wikipedia/commons/9/90/VDH_Logo.svg" title="Anerkannt durch den VDH (Verband für Deutsche Hundewesen)" alt="Anerkannt durch den VDH (Verband für Deutsche Hundewesen)">
+        <img id="fci" src="https://upload.wikimedia.org/wikipedia/de/e/ea/FCI_Logo.svg" title="Anerkannt durch die FCI (Fédération Cynologique Internationale)" alt="Anerkannt durch die FCI (Fédération Cynologique Internationale)">
+      </h2>
+      <div id="breedPictureContainer">
+        <img id="breedPicture" class="picture" src="icons/placeholder.svg" alt="breed">
+        <!--<img id="bodImg" class="icon" src="icons/warning.svg" title="Warnung: Qualzucht, Details siehe unten" alt="Warnung: Qualzucht, Details siehe unten">-->
+      </div>
+      <div id="bod" class="toast warning"><h3>Warnung: Qualzucht</h3><span id="bodText"></span></div>
+      <div id="listed" class="toast hint"><h3>Hinweis: Listenhund</h3><span id="listedText"></span></div>
+      <div id="attributes" class="container"></div>
+      <div id="driveSeperator" class="container"></div>
+      <div id="drives" class="container"></div>
+      <div id="measurements" class="container">
+        <h4>Eckdaten</h4>
+        <div class="content-container">
+          <div class="inline-container">
+            <h5 class="inline">FCI Gruppe:</h5>
+            <span id="fciMain"></span>
+          </div>
+          <!-- <div class="inline-container">
+            <h5 class="inline">FCI Sektion:</h5>
+            <span id="fciSecondary"></span>
+          </div> -->
+          <div class="inline-container">
+            <h5 class="inline">Lebenserwartung:</h5>
+            <span id="lifeExpectancy"></span>
+          </div>
+          <div class="inline-container">
+            <h5 class="inline">Hündin:</h5>
+            <span id="heightFemale"></span>
+            <span id="weightFemale"></span>
+          </div>
+          <div class="inline-container">
+            <h5 class="inline">Rüde:</h5>
+            <span id="heightMale"></span>
+            <span id="weightMale"></span>
+          </div>
         </div>
+      </div>
+      <div id="coat" class="container">
+        <h4>Fell</h4>
+        <div class="content-container">
+          <div class="inline-container">
+            <h5 class="inline">Felltyp:</h5>
+            <span id="coatType"></span>
+          </div>
+          <div class="inline-container">
+            <h5 class="inline">Farben:</h5>
+            <span id="coatColors"></span>
+          </div>
+          <div class="inline-container">
+            <h5 class="inline">Fehlfarben:</h5>
+            <span id="coatSpecialColors"></span>
+          </div>
+        </div>
+      </div>
+      <div id="character" class="container">
+        <h4>Wesen</h4>
+        <div class="content-container">
+            <span id="characterText"></span>
+        </div>
+      </div>
+      <div id="origin" class="container">
+        <h4>Herkunft</h4>
+        <div class="content-container">
+          <img class="icon" src="icons/placeholder.svg" alt="Herkunft" id="originIcon"><span id="originTitle"></span>
+        </div>
+      </div>
+      <div class="container">
+          <h4>Weiterführende Links</h4>
+          <div class="content-container">
+            <ul id="links"></ul>
+          </div>
+      </div>
     </section>
   </main>
   <footer>
