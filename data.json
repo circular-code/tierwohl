@@ -1,6 +1,7 @@
 {
     "breeds": {
         "frenchBullDog" : {
+            "id": "frenchBullDog",
             "title": "Französische Bulldogge",
             "img": "https://images.unsplash.com/photo-1629646507077-9212a539567a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
             "attributes": [
@@ -111,7 +112,8 @@
                 "vdh": true,
                 "bod": "Bei dieser Rasse ist Qualzucht weil...",
                 "coatType": "Schönes dichtes glänzendes und weiches Kurzhaar, ohne Unterwolle",
-                "listedDog": "Baden-Württemberg, Bayern"
+                "listedDog": "Baden-Württemberg, Bayern",
+                "beginnerFriendly": true
             },
             "links": [
                 {"name": "FCI Rassestandard", "url":"http://www.fci.be/Nomenclature/Standards/101g09-de.pdf"},
@@ -119,6 +121,7 @@
             ]
         },
         "australianShepherd" : {
+            "id": "australianShepherd",
             "title": "Australian Shepherd",
             "img": "https://images.unsplash.com/photo-1613750944954-bcb66ebc8491?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
             "attributes": [
@@ -229,7 +232,8 @@
                 "vdh": true,
                 "bod": "",
                 "coatType": "Langhaar",
-                "listedDog": ""
+                "listedDog": "",
+                "beginnerFriendly": false
             },
             "links": [
                 {"name": "FCI Rassestandard", "url":"http://www.fci.be/Nomenclature/Standards/342g01-de.pdf"},

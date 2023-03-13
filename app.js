@@ -1,6 +1,8 @@
-//TODO: add search and filtering
+"usestrict"
+// add search and filtering
 // add caret/info icon to show that you can click on attributes
 // prevent styling from "wiggeling" when hovering over or clicking on attribute-container
+// add last search terms to localstorage & search datalist
 
 {
     var app = {
@@ -52,7 +54,17 @@
             heightMale: document.getElementById('heightMale'),
             heightFemale: document.getElementById('heightFemale'),
             characterText: document.getElementById('characterText'),
-            overview: document.getElementById('overview')
+            overview: document.getElementById('overview'),
+            search: document.getElementById('search'),
+            bodFilter: document.getElementById('bodFilter'),
+            listedFilter: document.getElementById('listedFilter'),
+            beginnerFilter: document.getElementById('beginnerFilter'),
+            vdhFilter: document.getElementById('vdhFilter'),
+            fciFilter: document.getElementById('fciFilter'),
+            sizeFilter: document.getElementById('sizeFilter'),
+            filterButton: document.getElementById('filterButton'),
+            filterContainer: document.getElementById('filterContainer'),
+            breeds: []
         }
     };
 
@@ -126,6 +138,8 @@
         dom.addEventListener('click', function() {
            location.href = 'http://' + location.host + location.pathname + "?breed=" + breedKey;
         });
+
+        app.dom.breeds.push(dom);
 
         return dom;
     }
@@ -213,6 +227,78 @@
     app.initialiseOverview = breeds => {
         for (const key in breeds)
             app.dom.overview.appendChild(app.create.breed(key, breeds[key]));
+
+        app.dom.search.addEventListener('keyup', e => {
+            const visibleBreedKeys = Object.values(app.data.breeds).filter(breed => breed.title.indexOf(app.dom.search.value) > -1).map(breed => breed.id);
+            app.dom.breeds.forEach(breedDom => visibleBreedKeys.indexOf(breedDom.id) === -1 ? breedDom.classList.add('hidden') : breedDom.classList.remove('hidden'));
+        });
+
+        app.dom.search.addEventListener('search', e => {
+            if (!app.dom.search.value)
+                app.dom.breeds.forEach(breedDom => breedDom.classList.remove('hidden'));
+        });
+
+        app.dom.filterButton.addEventListener('click', e => {
+            if (app.dom.filterContainer.style.display === 'none')
+                app.dom.filterContainer.style.display = 'block';
+            else
+                app.dom.filterContainer.style.display = 'none';
+        });
+
+        app.dom.filterContainer.addEventListener('click', e => {
+            let targetCheckbox;
+
+            if (e.target.tagName === 'SELECT')
+
+            if (e.target.tagName === 'LABEL')
+                targetCheckbox = e.target.htmlFor;
+
+            else if (e.target.tagName === 'INPUT')
+                targetCheckbox = e.target.name;
+
+            if (targetCheckbox && app.dom[targetCheckbox]) {
+                if (app.dom[targetCheckbox].checked)
+                    app.dom.breeds.forEach(breedDom => {
+                        if (app.data.breeds[breedDom.id] && app.data.breeds[breedDom.id].bioData) {
+
+                            let dataTarget = '';
+                            let switchBool = false;
+
+                            switch (targetCheckbox) {
+                                case 'bodFilter':
+                                    dataTarget = 'bod';
+                                    break;
+
+                                case 'listedFilter':
+                                    dataTarget = 'listedDog';
+                                    break;
+                                    
+                                case 'vdhFilter':
+                                    switchBool = true;
+                                    dataTarget = 'vdh';
+                                    break;
+                                    
+                                case 'fciFilter':
+                                    switchBool = true;
+                                    dataTarget = 'fci';
+                                    break;
+                                    
+                                case 'beginnerFilter':
+                                    switchBool = true;
+                                    dataTarget = 'beginnerFriendly';
+                                    break;
+                            }
+
+                            if (switchBool ? !app.data.breeds[breedDom.id].bioData[dataTarget] : app.data.breeds[breedDom.id].bioData[dataTarget])
+                                breedDom.classList.add(targetCheckbox + '-hidden');
+                            else
+                                breedDom.classList.remove(targetCheckbox + '-hidden');
+                        }
+                    });
+                else
+                    app.dom.breeds.forEach(breedDom => breedDom.classList.remove(targetCheckbox + '-hidden'));
+            }
+        });
     };
 
     app.init = async () => {
@@ -225,6 +311,7 @@
             if (breed)
                 return app.initialiseBreed(breed);
 
+            app.data.breeds = breeds;
             app.initialiseOverview(breeds);
         });
     };

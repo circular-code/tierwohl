@@ -17,7 +17,46 @@
   </nav>
   <main>
     <section id="overview">
-      <div id="search"></div>
+      <div id="searchContainer">
+        <input placeholder="Suchbegriff eingeben" list="searchList" id="search" name="search" type="search">
+        <datalist id="searchList">
+            <option value="Französische Bulldogge">
+            <option value="Australian Shepherd">
+        </datalist>
+        <button class="button" type="button" id="searchButton">Suche <img class="icon" src="icons/search.svg" alt="Filter"></button>
+        <button class="button" type="button" id="filterButton">Filter <img class="icon" src="icons/filter.svg" alt="Filter"></button>
+        <div id="filterContainer" style="display:none">
+          <div class="filter-detail">
+            <input type="checkbox" id="bodFilter" name="bodFilter">
+            <label for="bodFilter">keine Qualzucht</label> 
+          </div>
+          <div class="filter-detail">
+            <input type="checkbox" id="listedFilter" name="listedFilter">
+            <label for="listedFilter">kein Listenhund</label>
+          </div>
+          <div class="filter-detail">
+            <input type="checkbox" id="beginnerFilter" name="beginnerFilter">
+            <label for="beginnerFilter">Anfängerfreundlich</label>
+          </div>
+          <div class="filter-detail">
+            <input type="checkbox" id="vdhFilter" name="vdhFilter">
+            <label for="vdhFilter">Gelistet im VDH</label>
+          </div>
+          <div class="filter-detail">
+            <input type="checkbox" id="fciFilter" name="fciFilter">
+            <label for="fciFilter">Gelistet im FCI</label>
+          </div>
+          <div class="filter-detail">
+            <label for="sizeFilter">Größe</label>
+            <select name="sizeFilter" id="sizeFilter">
+              <option value=""></option>
+              <option value="40">klein</option>
+              <option value="70">mittel</option>
+              <option value="200">groß</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </section>
     <section id="breed" >
       <h2>
@@ -27,7 +66,6 @@
       </h2>
       <div id="breedPictureContainer">
         <img id="breedPicture" class="picture" src="icons/placeholder.svg" alt="breed">
-        <!--<img id="bodImg" class="icon" src="icons/warning.svg" title="Warnung: Qualzucht, Details siehe unten" alt="Warnung: Qualzucht, Details siehe unten">-->
       </div>
       <div id="bod" class="toast warning"><h3>Warnung: Qualzucht</h3><span id="bodText"></span></div>
       <div id="listed" class="toast hint"><h3>Hinweis: Listenhund</h3><span id="listedText"></span></div>
